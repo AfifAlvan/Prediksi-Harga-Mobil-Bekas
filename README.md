@@ -24,3 +24,11 @@ Menyesuaikan input sesuai data historis
 2. Model Generative AI untuk Prediksi Harga: Aplikasi ini memprediksi harga mobil bekas berdasarkan merek, tipe, dan tahun mobil, dengan teknologi AI yang canggih.
 
 3. Deployment Sederhana & Cepat: Sistem mudah diakses dan memberikan prediksi harga secara real-time dan tepat.
+
+
+**For more Information:**
+
+Dataset: Scrapping from ```https://www.olx.co.id/``` with code `olx_sel_bs4.py`
+
+Linkedin: https://www.linkedin.com/in/afif-alvan/
+Portfolio : https://linktr.ee/AfifAlvan
