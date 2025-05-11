@@ -5,7 +5,7 @@ import joblib
 # Load model dan encoder
 model = joblib.load("model_harga_mobil.pkl")
 le_merek = joblib.load("le_merek.pkl")
-le_tipe = joblib.load("le_model.pkl")
+le_model = joblib.load("le_model.pkl")
 
 # Load dataset referensi untuk mapping Merek ke Tipe
 df = pd.read_csv("data_mobil_new.csv")
@@ -47,6 +47,7 @@ elif halaman == "Prediksi Harga":
     merek = st.selectbox("Pilih Merek Mobil", sorted(merek_tipe_map.keys()))
 
     # Pilihan Tipe berdasarkan Merek
+    
     tipe_list = sorted(merek_tipe_map.get(merek, []))
     tipe = st.selectbox("Pilih Tipe Mobil", tipe_list)
 
@@ -55,13 +56,13 @@ elif halaman == "Prediksi Harga":
 
     # Tombol Prediksi
     if st.button("Prediksi Harga"):
-        if merek not in le_merek.classes_ or tipe not in le_tipe.classes_:
+        if merek not in le_merek.classes_ or tipe not in le_model.classes_:
             st.error("Merek atau Tipe belum dikenali oleh model. Coba gunakan data dari pelatihan.")
         else:
             merek_encoded = le_merek.transform([merek])[0]
-            tipe_encoded = le_tipe.transform([tipe])[0]
+            tipe_encoded = le_model.transform([tipe])[0]
             input_data = pd.DataFrame([[merek_encoded, tipe_encoded, tahun]],
-                                      columns=['Merek_encoded', 'Tipe_encoded', 'Tahun'])
+                                      columns=['Merek_encoded', 'Model_encoded', 'Tahun'])
             prediksi = model.predict(input_data)[0]
             st.markdown(f"""
             <h2 style='color: #4CAF50; text-align: center; font-size: 40px;'>
