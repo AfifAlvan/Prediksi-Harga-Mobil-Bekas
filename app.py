@@ -50,7 +50,10 @@ elif halaman == "Prediksi Harga":
     # Pilihan Tipe berdasarkan Merek
     
     tipe_list = sorted(merek_tipe_map.get(merek, []))
-    tipe = st.selectbox("Pilih Tipe Mobil", tipe_list)
+    tipe_list_filtered = [tipe for tipe in tipe_list if tipe != "All"]
+    tipe = st.selectbox("Pilih Tipe Mobil", tipe_list_filtered)
+
+
 
     # Input Tahun
     tahun = st.number_input("Tahun Mobil", min_value=1990, max_value=2025, value=2015)
