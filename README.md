@@ -31,4 +31,5 @@ Menyesuaikan input sesuai data historis
 Dataset: Scrapping from ```https://www.olx.co.id/``` with code `olx_sel_bs4.py`
 
 Linkedin: https://www.linkedin.com/in/afif-alvan/
+
 Portfolio : https://linktr.ee/AfifAlvan
