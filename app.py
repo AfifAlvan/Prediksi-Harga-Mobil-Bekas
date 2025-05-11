@@ -9,6 +9,7 @@ le_model = joblib.load("le_model.pkl")
 
 # Load dataset referensi untuk mapping Merek ke Tipe
 df = pd.read_csv("data_mobil_new.csv")
+df.columns = df.columns.str.strip()  # ← penting
 merek_tipe_map = df.groupby('Merek')['Model'].unique().to_dict()
 # --- Sidebar Navigasi ---
 st.sidebar.title("🚗 Navigasi")
